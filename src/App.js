@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+// src/App.js
+import LoginForm from './components/LoginForm';
+import SupportPlus from './components/SupportPlus';
+import React, { useState } from 'react';
+import styles from './App.module.css';
 
 function App() {
+  const [authToken, setAuthToken] = useState('');
+
+  const assignToAuthToken = (value) => {
+     setAuthToken(value);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={styles.App}>
+      <div className={styles.appbox}>
+      {authToken === '' ? <LoginForm className={styles.appbox} setToken={assignToAuthToken}/> : <SupportPlus authToken={authToken}/>}
+      </div>
     </div>
   );
 }
 
 export default App;
+
