@@ -14,7 +14,7 @@ function App() {
   return (
     <div className={styles.App}>
       <div className={styles.appbox}>
-      {authToken === '' ? <LoginForm className={styles.appbox} setToken={assignToAuthToken}/> : <SupportPlus authToken={authToken}/>}
+      {authToken === '' ? <LoginForm className={styles.appbox} setToken={assignToAuthToken}/> : <SupportPlus className={styles.component} authToken={authToken}/>}
       </div>
     </div>
   );

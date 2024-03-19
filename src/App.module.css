@@ -1,21 +1,59 @@
 .App {
   background-image: url("./imgs/background.png");
   width: 23.4375rem;
-  height: 41.6875rem;
+  min-height: 41.6875rem;
   margin: 0 auto;
   text-align: center;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   border: 1px dashed #888888;
-  border-radius: 30px;
+  border-radius: 1rem;
   align-items: center;
   background-color: #1e1e1e;
-  justify-content: center;
+  justify-content: start;
 }
 .appbox {
+
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.component{
+  width: 100%;
+  height: 100%;
+}
+.tickets{
+  color: #f58a07;
+  text-align: start;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border-radius: 2rem;
+  background-color: #141414;
+  width: 21rem;
+  height: auto;
+  margin-bottom: 1rem;
+}
+.createticket{
+  color: #f58a07;
+  text-align: start;
+  padding: 1rem;
+  border-radius: 2rem;
+  background-color: #141414;
+  width: 21rem;
+  height: auto;
+  margin-bottom: 1rem;
+}
+.priority {
+  display: flex;
+  justify-content: space-around; /* Distributes space evenly around items */
+  align-items: center; /* Align items vertically in the center */
+}
+.priorityLabel {
+  width : 5rem;
+  display: flex;
+  flex-direction: column; /* Stack elements vertically */
+  align-items: center; /* Center-align items horizontally */
 }
 .login {
   padding: 1rem;
@@ -25,6 +63,7 @@
   background-color: #304e7b;
   text-align: end;
   align-items: end;
+  margin-left: 1rem;
 }
 .title {
 margin: 0;
@@ -57,18 +96,18 @@ letter-spacing: -0.06875rem;
 }
 .menu{
   display: grid;
-	grid-template-rows: repeat(2, 1fr);
-	grid-template-columns: repeat(2, 1fr);
-  justify-content: center;
-	gap: 0;
+	grid-template-rows: 1fr, 1fr;
+	grid-template-columns: 1fr, 1fr;
+	gap: 1px;
 	width: 100%;
 	height: 100%;
   background-color: #141414;
   border-radius: 2rem;
   width: 22rem;
-  height: 23rem;
+  height: 24rem;
 }
 .createTicket{
+  border-radius: 2rem;
   grid-area: 1 / 1 / 4 / 4;
   width: 10rem;
   height: 10rem;
@@ -80,6 +119,7 @@ letter-spacing: -0.06875rem;
   letter-spacing: -0.02475rem;
 }
 .viewTickets{
+  border-radius: 2rem;
   grid-area: 1 / 4 / 4 / 7;
   width: 10rem;
   height: 10rem;
@@ -91,6 +131,7 @@ letter-spacing: -0.06875rem;
   letter-spacing: -0.02475rem;
 }
 .viewFeedback{
+  border-radius: 2rem;
 	grid-area: 4 / 1 / 7 / 4;
   width: 10rem;
   height: 10rem;
@@ -102,6 +143,7 @@ letter-spacing: -0.06875rem;
   letter-spacing: -0.02475rem;
 }
 .userAccountSettings{
+  border-radius: 2rem;
 	grid-area: 4 / 4 / 7 / 7;
   width: 10rem;
   height: 10rem;
@@ -117,4 +159,23 @@ letter-spacing: -0.06875rem;
   width: 8rem;
   height: auto;
   flex-shrink: 0;
+}
+
+.header {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start
+}
+
+.profileContainer {
+  align-self: flex-end;
+  padding: 1rem;
+  padding-bottom: 3rem;
+}
+
+.profilePic {
+  width: 50px; 
+  height: auto;
 }

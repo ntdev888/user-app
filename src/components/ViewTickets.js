@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import styles from "../App.module.css"
 
 export const ViewTickets = ({ authToken, setActiveView }) => {
   const [tickets, setTickets] = useState([]);
@@ -39,19 +40,19 @@ export const ViewTickets = ({ authToken, setActiveView }) => {
   }
 
   return (
-    <div>
-    <div>
-      <h1>Tickets</h1>
+    <div className={styles.component}>
+    <div className={styles.tickets}>
+      <h2>Tickets</h2>
       {tickets.length > 0 ? (
         <ul>
           {tickets.map(ticket => (
             <li key={ticket.id}>
-              <h2>{ticket.title}</h2>
-              <p>Description: {ticket.description}</p>
-              <p>Status: {ticket.status}</p>
-              <p>Assigned To: {ticket.assignTo}</p>
-              <p>Contact: {ticket.contactMe}</p>
-              <p>Priority: {ticket.priority}</p>
+              <h3>{ticket.title}</h3>
+              Description: {ticket.description}<br/>
+              status: {ticket.status}<br/>
+              Assigned To: {ticket.assignTo}<br/>
+              Contact: {ticket.contactMe}<br/>
+              Priority: {ticket.priority}<br/>
             </li>
           ))}
         </ul>
@@ -59,7 +60,7 @@ export const ViewTickets = ({ authToken, setActiveView }) => {
         <p>There was an Error</p>
       )}
     </div>
-    <button onClick={() => setActiveView('menu')}>Home</button>
+    <button className={styles.login} onClick={() => setActiveView('menu')}>Home</button>
     </div>
   );
 };
