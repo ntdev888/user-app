@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styles from "../App.module.css"
 
-export const ViewTickets = ({ authToken, setActiveView }) => {
+export const ViewTickets = ({ authToken, setActiveView, user }) => {
   const [tickets, setTickets] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -15,7 +15,7 @@ export const ViewTickets = ({ authToken, setActiveView }) => {
             'Content-Type': 'application/json',
           },
           data: {
-            'userId' : '2'
+            'user' : `${user}`
           }
         });
 

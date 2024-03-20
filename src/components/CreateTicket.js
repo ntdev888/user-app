@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import styles from "../App.module.css";
 
-export const CreateTicket = ({ authToken,setActiveView }) => {
+export const CreateTicket = ({ authToken,setActiveView,user }) => {
   const [area, setIssueArea] = useState(' ');
   const [priority, setPriority] = useState('Low');
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [contactMe, setContactBy] = useState('Email');
-  const [user, setUser] = useState('2');
 
   const handleSubmit = async (e) => {
     e.preventDefault(); // Prevent default form submission behavior

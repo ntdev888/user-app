@@ -6,6 +6,7 @@ import styles from './App.module.css';
 
 function App() {
   const [authToken, setAuthToken] = useState('');
+  const [user, setUser] = useState('')
 
   const assignToAuthToken = (value) => {
      setAuthToken(value);
@@ -14,7 +15,7 @@ function App() {
   return (
     <div className={styles.App}>
       <div className={styles.appbox}>
-      {authToken === '' ? <LoginForm className={styles.appbox} setToken={assignToAuthToken}/> : <SupportPlus className={styles.component} authToken={authToken}/>}
+      {authToken === '' ? <LoginForm setToken={assignToAuthToken} token={authToken} setUser={setUser}/> : <SupportPlus className={styles.component} authToken={authToken} user={user}/>}
       </div>
     </div>
   );

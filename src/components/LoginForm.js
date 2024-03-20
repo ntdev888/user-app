@@ -2,13 +2,15 @@
 import React , {useState} from 'react';
 import styles from '../App.module.css'; // Adjust the import path as needed
 
-const LoginForm = ({ setToken }) => {
+const LoginForm = ({ setToken,setUser,token }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
   const handleLogin = async (e) => {
     e.preventDefault();
+
+
     try {
       const response = await fetch('http://localhost:8080/api-token-auth/', {
         method: 'POST',
@@ -32,14 +34,45 @@ const LoginForm = ({ setToken }) => {
       setToken(data.token);
       console.log('Login successful!');
       console.log(data.token);
+
+
+
+
+      const userInfoResponse = await fetch('http://localhost:8080/api/get-user-id/?username=' + encodeURIComponent(username), {
+        method: 'GET',
+        headers: {
+          'Authorization': `Token ${data.token}`, 
+          'Content-Type': 'application/json',
+        },
+      });
+
+      if (!userInfoResponse.ok) {
+        throw new Error('Failed to fetch user info');
+      }
+
+      const userData = await userInfoResponse.json();
+      // Use the prop function to update the user ID state in the parent component
+      setUser(userData.user_id);
+      console.log(`User ID set successfully! USERID : ${userData.user_id}`);
+
+
+
+
+
+
     } catch (err) {
+
       setError('Failed to login. Please check your username and password.');
       console.error(err);
+
     }
+
   };
 
+
+
   return (
-    <div>
+    <div className={styles.loginbox}>
       <h3 className={styles.title}>Support Plus</h3>
     <form onSubmit={handleLogin} className={styles.login}>
       <div className={styles.inputs}>
