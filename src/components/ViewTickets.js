@@ -53,6 +53,7 @@ export const ViewTickets = ({ authToken, setActiveView, user }) => {
               Assigned To: {ticket.assignTo}<br/>
               Contact: {ticket.contactMe}<br/>
               Priority: {ticket.priority}<br/>
+              Category
             </li>
           ))}
         </ul>

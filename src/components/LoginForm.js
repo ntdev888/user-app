@@ -1,8 +1,8 @@
 
 import React , {useState} from 'react';
-import styles from '../App.module.css'; // Adjust the import path as needed
+import styles from '../App.module.css';
 
-const LoginForm = ({ setToken,setUser,token }) => {
+const LoginForm = ({ setToken,setUser }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -11,6 +11,7 @@ const LoginForm = ({ setToken,setUser,token }) => {
     e.preventDefault();
 
 
+    //log user in from information input into login fields
     try {
       const response = await fetch('http://localhost:8080/api-token-auth/', {
         method: 'POST',
@@ -28,16 +29,18 @@ const LoginForm = ({ setToken,setUser,token }) => {
       };
 
       const data = await response.json();
-      // Store the token in localStorage for simplicity
+      // Store the token in localStorage for future persistancy 
+
       localStorage.setItem('token', data.token);
       // Use the prop function to update the authToken state in the parent component
+
       setToken(data.token);
       console.log('Login successful!');
-      console.log(data.token);
+      console.log(data.token); //development testing remove for application (NT)
 
 
 
-
+      //successful login will execute UserID Lookup in auth table on Django
       const userInfoResponse = await fetch('http://localhost:8080/api/get-user-id/?username=' + encodeURIComponent(username), {
         method: 'GET',
         headers: {
@@ -51,14 +54,10 @@ const LoginForm = ({ setToken,setUser,token }) => {
       }
 
       const userData = await userInfoResponse.json();
+
       // Use the prop function to update the user ID state in the parent component
       setUser(userData.user_id);
       console.log(`User ID set successfully! USERID : ${userData.user_id}`);
-
-
-
-
-
 
     } catch (err) {
 
