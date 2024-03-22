@@ -51,7 +51,7 @@ You can check if they're installed by running `node -v` and `npm -v` (or `yarn -
 
      For example:
      ```plaintext
-     REACT_APP_API_URL=https://yourapiendpoint.com
+     REACT_APP_API_URL=https://localhost:8080
      ```
 
 ## Running the Development Server
