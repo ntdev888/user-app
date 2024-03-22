@@ -185,3 +185,14 @@ letter-spacing: -0.06875rem;
   width: 50px; 
   height: auto;
 }
+
+.feedbackpopup {
+  border-radius: 2rem;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #FAF9F6;
+  padding: 20px;
+  z-index: 1000;
+}
